@@ -28,7 +28,7 @@ module DeviseSanitizer
     %i[
       firstname
       lastname
-      salutation
+      phone
     ]
   end
 end

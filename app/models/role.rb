@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Role < ApplicationRecord
   has_many :permissions, as: :accessor, dependent: :destroy
   has_many :users, dependent: :restrict_with_error

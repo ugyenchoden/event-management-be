@@ -37,4 +37,3 @@ Devise.setup do |config|
   end
 end
 # rubocop:enable all
-

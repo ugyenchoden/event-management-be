@@ -24,9 +24,10 @@ describe 'Registrations API' do
                 type: :object,
                 properties: {
                   firstname: { type: :string },
-                  lastname: { type: :string }
+                  lastname: { type: :string },
+                  phone: { type: :string }
                 },
-                required: %w[firstname lastname]
+                required: %w[firstname lastname phone]
               }
             },
             required: %w[email role_id password]
@@ -43,7 +44,8 @@ describe 'Registrations API' do
               role_id: role.id,
               profile_attributes: {
                 firstname: 'Ugyen',
-                lastname: 'Choden'
+                lastname: 'Choden',
+                phone: '97517171717'
               }
             }
           }
@@ -57,13 +59,8 @@ describe 'Registrations API' do
         let_it_be(:params) { { user: { role_id: role.id } } }
 
         run_test! do
-          expect(json.errors).to match_array(
-            [
-              "Email can't be blank",
-              "Profile can't be blank",
-              "Password can't be blank"
-            ]
-          )
+          expect(json.errors).to contain_exactly("Email can't be blank", "Profile can't be blank",
+                                                 "Password can't be blank")
         end
       end
     end
