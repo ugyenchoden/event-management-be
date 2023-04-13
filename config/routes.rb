@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    namespace :v1 do
+    namespace :v1 do # rubocop:disable Naming/VariableNumber
       post '/graphql', to: 'graphql#execute'
     end
   end
