@@ -78,7 +78,7 @@ end
 
 def execute(query, current_user: nil)
   ActiveSupport::HashWithIndifferentAccess.new(
-    ChatAppSchema.execute(
+    EventManagementBeSchema.execute(
       query,
       context: { current_user: current_user, time_zone: Time.zone }
     ).as_json
